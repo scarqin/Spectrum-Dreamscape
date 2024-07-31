@@ -1,0 +1,41 @@
+# Node
+/node_modules
+**/node_modules/
+npm-debug.log
+*-lock.json
+yarn-error.log
+yarn.lock
+package-lock.json
+dist.zip
+/mock
+/apps/extension/scripts/*.json
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/services.code-snippets
+.history/*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Unit tests
+unit_coverage
+
+# End-to-end tests
+e2e_coverage
+.nyc_output
+
+# Local development launcher cache files
+.launcher
+
+.turbo
+out
+dist
+storybook-static
+
+.monaco
