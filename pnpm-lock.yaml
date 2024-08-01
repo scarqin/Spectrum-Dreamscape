@@ -29,6 +29,9 @@ dependencies:
   react-scripts:
     specifier: 5.0.1
     version: 5.0.1(@babel/plugin-syntax-flow@7.24.7)(@babel/plugin-transform-react-jsx@7.25.2)(eslint@8.57.0)(react@18.2.0)(typescript@5.5.4)
+  tailwindcss:
+    specifier: ^3.4.7
+    version: 3.4.7
 
 packages:
 
