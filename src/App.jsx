@@ -24,7 +24,7 @@ function App() {
   }
   return (
     <>
-       <div className="absolute block">
+       <div className="absolute block z-10">
         <a id="forward" onClick={goNext}>
           Forward
         </a>
