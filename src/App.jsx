@@ -1,6 +1,10 @@
+import { useState } from 'react'
+import './App.css'
 import 'aframe'
 
-export default function App() {
+
+function App() {
+  const [count, setCount] = useState(0)
   var zerod = 0
   var images = [
     'https://aframe.io/aframe/examples/boilerplate/panorama/puydesancy.jpg',
@@ -20,7 +24,7 @@ export default function App() {
   }
   return (
     <>
-      <div className="absolute">
+       <div className="absolute block">
         <a id="forward" onClick={goNext}>
           Forward
         </a>
@@ -46,3 +50,5 @@ export default function App() {
     </>
   )
 }
+
+export default App
