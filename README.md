@@ -10,7 +10,7 @@
 我们是光谱梦境团队，一群热爱探索科技与艺术结合的年轻人。我们来自不同的背景，擅长AI、VR、视觉设计和音乐制作。虽然我们并不觉得自己是专家，但我们充满了好奇心和热情，想要在这个项目中尝试新的东西。我们希望通过这次黑客马拉松，向大家展示科技与艺术的无限可能。
 
 
-# 运行
+# 框架说明
 
 React + Vite
 
@@ -21,4 +21,15 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# 
+# 启动
+1. 安装依赖
+```
+pnpm install
+```
+
+2. 命令说明
+
+|命令 |描述 |
+| ------------ | ------------ |
+|pnpm dev |启动 |
+|pnpm build|构建包| 
