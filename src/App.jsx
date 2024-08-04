@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import 'aframe'
-
+import VideoPlayer from './components/VideoPlayer'
 
 function App() {
-  const [count, setCount] = useState(0)
   var zerod = 0
   var images = [
     'https://aframe.io/aframe/examples/boilerplate/panorama/puydesancy.jpg',
@@ -24,20 +23,8 @@ function App() {
   }
   return (
     <>
-       <div className="absolute block z-10">
-        <a id="forward" onClick={goNext}>
-          Forward
-        </a>
-        <a id="back" onClick={goBack}>
-          Back
-        </a>
-        <a
-          id="vr"
-          onClick={() => {
-            document.querySelector('a-scene').enterVR()
-          }}>
-          VR
-        </a>
+      <div className="absolute z-10 block left-5 bottom-5">
+        <VideoPlayer />
       </div>
       <a-scene image-toggle vr-mode-ui="enabled: false">
         <a-assets>
