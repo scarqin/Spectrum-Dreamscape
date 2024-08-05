@@ -26,6 +26,9 @@ dependencies:
   aframe-layout-component:
     specifier: ^5.3.0
     version: 5.3.0
+  aframe-proxy-event-component:
+    specifier: ^2.1.0
+    version: 2.1.0
   aframe-template-component:
     specifier: 3.2.2
     version: 3.2.2
@@ -3958,6 +3961,10 @@ packages:
       karma-chrome-launcher: 2.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /aframe-proxy-event-component@2.1.0:
+    resolution: {integrity: sha512-FJ1+ZQLsETYoZbNwCe3l9xkakOHPYnBgDIE4YJMpWvqiFjiq0+BY6VuFWraZDdluul78b/d+UXIXmdd1JZRYqg==, tarball: https://r2.cnpmjs.org/aframe-proxy-event-component/-/aframe-proxy-event-component-2.1.0.tgz}
     dev: false
 
   /aframe-template-component@3.2.2:
