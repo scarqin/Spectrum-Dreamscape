@@ -18,13 +18,13 @@ function App() {
           proxy-event="event: click; to: #image-360; as: fade"
           sound="on: click; src: #click-sound"></a-entity>
         <a-assets>
+          {/* 全景图 */}
           <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" />
           <img id="city-thumb" src="/images/player.jpeg" />
-          <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg" />
-          {/* <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg" /> */}
+          <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg" />
           <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg" />
           <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg" />
-          {/* <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg" /> */}
+          <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg" />
         </a-assets>
 
         <a-sky
@@ -35,9 +35,8 @@ function App() {
           animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
         <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-          <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
           <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-          {/* <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity> */}
+          <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
         </a-entity>
 
         <a-entity camera look-controls>
