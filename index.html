@@ -55,9 +55,8 @@
         const skyElement = document.getElementById('image-360')
         currentSong.backgrounds.forEach((item) => {
           setTimeout(() => {
-            console.log(skyElement, item.imageUrl)
             skyElement.setAttribute('src', item.imageUrl)
-          }, item.time * 200)
+          }, item.time * 1000)
         })
       }
       //TODO 多歌逻辑
