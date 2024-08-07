@@ -12,7 +12,7 @@
       <a-assets>
         <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" />
         <img crossorigin="anonymous" id="cover-image" src="/images/player.jpeg" />
-        <audio id="audio" src="/music.mp3"></audio>
+        <audio id="audio" src="/I Go Meow.mp3"></audio>
       </a-assets>
 
       <a-sky
@@ -24,11 +24,14 @@
       ></a-sky>
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
         <a-entity
+          id="audio-link"
           class="link"
           geometry="primitive: plane; height: 1.5; width: 1.5"
           material="shader: flat; src: #cover-image"
           position="0 1.5 -3"
           sound="on: click; src: #audio"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
           onclick="startPlay()"
         ></a-entity>
       </a-entity>
@@ -62,11 +65,18 @@
       //TODO 多歌逻辑
       const init = async () => {
         const result = await getLink()
-        currentSong = result.data.songs[0]
+        currentSong = result.data.songs[4]
         // 替换封面图
         document.getElementById('cover-image').setAttribute('src', currentSong.coverImage)
         // 替换音源
-        document.getElementById('audio').setAttribute('src', currentSong.audioUrl)
+        // 替换音源
+        const audioElement = document.getElementById('audio')
+        if (audioElement) {
+          console.log('Setting audio src to:', currentSong.audioUrl)
+          audioElement.setAttribute('src', currentSong.audioUrl)
+        } else {
+          console.error('Element with id "audio" not found.')
+        }
         // 通过 backgrounds 定时更新背景图片
         document.getElementById('city').setAttribute('src', currentSong.backgrounds[0].imageUrl)
       }
