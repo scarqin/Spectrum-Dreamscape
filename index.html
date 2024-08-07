@@ -10,11 +10,9 @@
     <script type="module" src="/src/main.jsx"></script>
     <a-scene>
       <a-assets>
-        <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" />
-        {/* 全景图 */}
-        <img id="cover-image" src="/images/player.jpeg" />
-
-        <audio id="audio" src="/music.mp3" />
+        <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" />
+        <img crossorigin="anonymous" id="cover-image" src="/images/player.jpeg" />
+        <audio id="audio" src="/music.mp3"></audio>
       </a-assets>
 
       <a-sky
@@ -54,10 +52,12 @@
       let currentSong
       const startPlay = () => {
         // 定时器监听音乐播放时间，更新背景图片
+        const skyElement = document.getElementById('image-360')
         currentSong.backgrounds.forEach((item) => {
           setTimeout(() => {
-            document.getElementById('city').setAttribute('src', item.imageUrl)
-          }, item.time * 1000)
+            console.log(skyElement, item.imageUrl)
+            skyElement.setAttribute('src', item.imageUrl)
+          }, item.time * 200)
         })
       }
       //TODO 多歌逻辑
