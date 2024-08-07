@@ -57,7 +57,7 @@
         currentSong.backgrounds.forEach((item) => {
           setTimeout(() => {
             document.getElementById('city').setAttribute('src', item.imageUrl)
-          }, item.time)
+          }, item.time * 1000)
         })
       }
       //TODO 多歌逻辑
