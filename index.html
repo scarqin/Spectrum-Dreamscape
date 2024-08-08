@@ -10,8 +10,8 @@
     <script type="module" src="/src/main.jsx"></script>
     <a-scene>
       <a-assets>
-        <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" />
-        <img crossorigin="anonymous" id="cover-image" src="/images/player.jpeg" />
+        <img crossorigin="anonymous" id="city" src="/images/ComfyUI_00097_.png" />
+        <img crossorigin="anonymous" id="cover-image" src="/images/player.jpg" />
         <audio id="audio" src="/I Go Meow.mp3"></audio>
       </a-assets>
 
@@ -32,7 +32,7 @@
           sound="on: click; src: #audio"
           event-set__mouseenter="scale: 1.2 1.2 1"
           event-set__mouseleave="scale: 1 1 1"
-          onclick="startPlay()"
+          onclick="clickCover()"
         ></a-entity>
       </a-entity>
 
@@ -53,19 +53,32 @@
         return await res.json()
       }
       let currentSong
-      const startPlay = () => {
+      let timerIds = []
+      let songs = []
+
+      let index = 1
+      const clickCover = () => {
+        if (index >= songs.length - 1) {
+          index = 0
+        }
+
+        // 设置新的音乐
+        currentSong = songs[++index]
+        setMusic()
+
         // 定时器监听音乐播放时间，更新背景图片
         const skyElement = document.getElementById('image-360')
         currentSong.backgrounds.forEach((item) => {
-          setTimeout(() => {
+          const timerId = setTimeout(() => {
             skyElement.setAttribute('src', item.imageUrl)
           }, item.time * 1000)
+          timerIds.push(timerId)
         })
       }
-      //TODO 多歌逻辑
-      const init = async () => {
-        const result = await getLink()
-        currentSong = result.data.songs[4]
+      const setMusic = () => {
+        // 清理所有定时器
+        timerIds.forEach(clearTimeout)
+        timerIds = []
         // 替换封面图
         document.getElementById('cover-image').setAttribute('src', currentSong.coverImage)
         // 替换音源
@@ -80,7 +93,13 @@
         // 通过 backgrounds 定时更新背景图片
         document.getElementById('city').setAttribute('src', currentSong.backgrounds[0].imageUrl)
       }
-
+      //TODO 多歌逻辑
+      const init = async () => {
+        const result = await getLink()
+        songs = result.data.songs
+        currentSong = songs[index]
+        setMusic()
+      }
       init()
     </script>
   </body>
