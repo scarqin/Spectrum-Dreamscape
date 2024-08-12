@@ -80,16 +80,16 @@
         timerIds.forEach(clearTimeout)
         timerIds = []
         // 替换封面图
-        document.getElementById('cover-image').setAttribute('src', currentSong.coverImage)
+        const coverImage = document.querySelector('#audio-link')
+        coverImage.setAttribute('material', 'src', currentSong.coverImage)
+
         // 替换音源
-        // 替换音源
-        const audioElement = document.getElementById('audio')
-        if (audioElement) {
-          console.log('Setting audio src to:', currentSong.audioUrl)
-          audioElement.setAttribute('src', currentSong.audioUrl)
-        } else {
-          console.error('Element with id "audio" not found.')
-        }
+        const audioLink = document.querySelector('#audio-link')
+        // Get the current audio source
+        const currentAudioSrc = audioLink.getAttribute('sound').src
+        // Switch to a new audio source
+        audioLink.setAttribute('sound', 'src', currentSong.audioUrl)
+
         // 通过 backgrounds 定时更新背景图片
         document.getElementById('city').setAttribute('src', currentSong.backgrounds[0].imageUrl)
       }
